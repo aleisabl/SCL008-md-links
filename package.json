@@ -12,9 +12,5 @@
     "test": "jest --coverage",
     "pretest": "npm run eslint && npm run htmlhint"
   },
-  "author": "Alexandra",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/aleisabl/SCL008-md-links/issues"
-  }
+  "author": "Alexandra"
 }
