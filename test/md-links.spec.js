@@ -1,4 +1,4 @@
-const mdLinks = require('../');
+/* const mdLinks = require('../');
 
 
 describe('mdLinks', () => {
@@ -7,4 +7,11 @@ describe('mdLinks', () => {
     console.log('FIX ME!');
   });
 
+});
+ */
+
+const sum = require('./../index.js');
+
+test('adds 1 + 2 to equal 3', () => {
+  expect(sum(1, 2)).toBe(3);
 });
