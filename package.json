@@ -1,16 +1,16 @@
 {
   "name": "md-links",
   "version": "0.1.0",
-  "description": "proyecto markdown",
   "dependencies": {
-    "markdown-link-extractor": "^1.2.0"
+    "markdown-link-extractor": "^1.2.0",
+    "node-fetch": "^2.3.0",
+    "path": "^0.12.7"
+  },
+  "scripts": {
+    "test": "jest --coverage"
   },
   "devDependencies": {
     "jest": "^24.7.1"
-  },
-  "scripts": {
-    "test": "jest --coverage",
-    "pretest": "npm run eslint && npm run htmlhint"
   },
   "author": "Alexandra"
 }
