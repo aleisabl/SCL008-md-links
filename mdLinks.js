@@ -1,42 +1,24 @@
-/*  "use strict";
-
-let fs = require('fs');
-let markdownLinkExtractor = require('markdown-link-extractor');
-let markdown = fs.readFileSync('README.md', 'utf-8');
-let links = markdownLinkExtractor(markdown);
-
-links.forEach(function (link) {
-    console.log(link, 'Zelda');
-}); 
- */
-
-/* let fs = require('fs');
-
-const readFilePromise = (file,cod) => {
-    return new Promise((resolve, reject) => {
-        fs.readFile(file, cod, (error, data) => {
-            if(error) return reject(error);
-            resolve(data);
-        })
-    });
-}
-
-const indexPromise = readFilePromise('README.md', 'utf-8');
-indexPromise
-.then((data) => {
-    console.log(data);
-    return readFilePromise('README.md', 'utf-8');
-})
-.catch(console.error)
- */
-
+#!/usr/bin/env node
 "use strict";
-
 let fs = require('fs');
+const command = process.argv[2]
 let markdownLinkExtractor = require('markdown-link-extractor');
-let markdown = fs.readFileSync('README.md', 'utf-8');
+let markdown = fs.readFileSync(command, 'utf-8');
 let links = markdownLinkExtractor(markdown);
+const yargs = require('yargs')
 
-links.forEach(function (link) {
-    console.log(link, 'Zelda');
-}); 
+yargs.version('1.1.0')
+
+ yargs.command( {
+     command: 'options',
+     describe: 'Add a new option',
+     handler: function () {
+         console.log('adding option')
+     }
+ })
+
+ console.log(yargs.argv)
+
+ links.forEach(function (link) {
+     console.log(link);
+ });
