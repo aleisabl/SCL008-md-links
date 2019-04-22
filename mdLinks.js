@@ -1,11 +1,13 @@
 #!/usr/bin/env node
-"use strict";
+
 let fs = require('fs');
+const yargs = require('yargs')
+
 const command = process.argv[2]
 let markdownLinkExtractor = require('markdown-link-extractor');
 let markdown = fs.readFileSync(command, 'utf-8');
 let links = markdownLinkExtractor(markdown);
-const yargs = require('yargs')
+
 
 yargs.version('1.1.0')
 
