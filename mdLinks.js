@@ -1,26 +1,38 @@
 #!/usr/bin/env node
 
-let fs = require('fs');
-const yargs = require('yargs')
+let fs = require('fs')
+let markdownLinkExtractor = require('markdown-link-extractor')
+/* let markdown = fs.readFileSync(path, utf-8);
+let links = markdownLinkExtractor(markdown);     */
 
-const command = process.argv[2]
-let markdownLinkExtractor = require('markdown-link-extractor');
-let markdown = fs.readFileSync(command, 'utf-8');
-let links = markdownLinkExtractor(markdown);
+/* 
+// -------SIRVE---------
+
+links.forEach(function (link) {
+    console.log(link);
+});  */
 
 
-yargs.version('1.1.0')
 
- yargs.command( {
-     command: 'options',
-     describe: 'Add a new option',
-     handler: function () {
-         console.log('adding option')
-     }
- })
+// --------PASANDO A FUNCIÓN, NO SIRVE---------
 
- console.log(yargs.argv)
+const mdLinks = (path, encoding) => {
+    return new Promise ((resolve,reject) => {
+        console.log(path, encoding)
+        try {
+            let markdown = fs.readFileSync(path, encoding);
+            let links = markdownLinkExtractor(markdown);    
+            resolve(links);
+        }
+        catch(error){
+            reject(error)
+        }
+    })
+}
 
- links.forEach(function (link) {
-     console.log(link);
- });
+module.exports = {
+     mdLinks
+ } 
+
+
+

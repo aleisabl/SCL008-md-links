@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "author": "Alexandra",
   "bin": {
-    "mdLinks": "mdLinks.js"
+    "mdLinks": "index.js"
   },
   "scripts": {
     "test": "jest --coverage"
@@ -15,5 +15,6 @@
     "markdown-link-extractor": "^1.2.0",
     "node-fetch": "^2.3.0",
     "path": "^0.12.7",
-    "yargs": "^13.2.2"}
+    "yargs": "^13.2.2"
   }
+}
