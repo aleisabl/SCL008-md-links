@@ -12,6 +12,7 @@ const mdLinks = (path) => {
         }
         catch(error){
             reject(error)
+            return false;
         }
     })
 }
