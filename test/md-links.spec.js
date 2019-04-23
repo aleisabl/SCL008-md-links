@@ -11,9 +11,15 @@ describe('mdLinks', () => {
       'https://nodejs.org/api/fs.html', 'https://nodejs.org/api/path.html']);
   });
 
-  it('Debería retornar error para el archivo hola2.md', ()  => {
+  it('Debería retornar "error no such file or directory" para el archivo hola2.md', ()  => {
     //Use .toThrow to test that a function throws when it is called
     expect(mdLinks.mdLinks('hola2.md')).rejects.toThrow("ENOENT: no such file or directory, open 'hola2.md'");
   });
+
+  it('Debería retornar "Error: Por favor ingresa un .md" cuando se ingresa otro formato', ()  => {
+    //Use .toThrow to test that a function throws when it is called
+    expect(mdLinks.mdLinks('index.js')).rejects.toThrow("Por favor ingresa un .md");
+  });
+
 
 })  
