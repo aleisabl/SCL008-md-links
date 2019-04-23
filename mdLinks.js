@@ -1,42 +1,38 @@
-/*  "use strict";
+#!/usr/bin/env node
 
-let fs = require('fs');
-let markdownLinkExtractor = require('markdown-link-extractor');
-let markdown = fs.readFileSync('README.md', 'utf-8');
-let links = markdownLinkExtractor(markdown);
+let fs = require('fs')
+let markdownLinkExtractor = require('markdown-link-extractor')
+/* let markdown = fs.readFileSync(path, utf-8);
+let links = markdownLinkExtractor(markdown);     */
+
+/* 
+// -------SIRVE---------
 
 links.forEach(function (link) {
-    console.log(link, 'Zelda');
-}); 
- */
+    console.log(link);
+});  */
 
-/* let fs = require('fs');
 
-const readFilePromise = (file,cod) => {
-    return new Promise((resolve, reject) => {
-        fs.readFile(file, cod, (error, data) => {
-            if(error) return reject(error);
-            resolve(data);
-        })
-    });
+
+// --------PASANDO A FUNCIÓN, NO SIRVE---------
+
+const mdLinks = (path, encoding) => {
+    return new Promise ((resolve,reject) => {
+        console.log(path, encoding)
+        try {
+            let markdown = fs.readFileSync(path, encoding);
+            let links = markdownLinkExtractor(markdown);    
+            resolve(links);
+        }
+        catch(error){
+            reject(error)
+        }
+    })
 }
 
-const indexPromise = readFilePromise('README.md', 'utf-8');
-indexPromise
-.then((data) => {
-    console.log(data);
-    return readFilePromise('README.md', 'utf-8');
-})
-.catch(console.error)
- */
+module.exports = {
+     mdLinks
+ } 
 
-"use strict";
 
-let fs = require('fs');
-let markdownLinkExtractor = require('markdown-link-extractor');
-let markdown = fs.readFileSync('README.md', 'utf-8');
-let links = markdownLinkExtractor(markdown);
 
-links.forEach(function (link) {
-    console.log(link, 'Zelda');
-}); 

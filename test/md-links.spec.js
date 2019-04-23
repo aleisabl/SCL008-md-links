@@ -2,10 +2,14 @@
 
 const mdLinks = require("../mdLinks.js");
 
-describe('', () => {
+describe('mdLinks', () => {
 
-  it('', () => {
-    expect().toBe();
+  it('Si recibe un archivo .md, retorna links', () => {
+    expect(mdLinks.mdLinks('README.md')).toBe(link);
+  });
+
+  it('Si no recibe un archivo .md, retorna false', () => {
+    expect(mdLinks.mdLinks('index.js')).toBe(false);
   });
 
 })  

@@ -1,10 +1,9 @@
 {
   "name": "md-links",
   "version": "0.1.0",
-  "dependencies": {
-    "markdown-link-extractor": "^1.2.0",
-    "node-fetch": "^2.3.0",
-    "path": "^0.12.7"
+  "author": "Alexandra",
+  "bin": {
+    "mdLinks": "index.js"
   },
   "scripts": {
     "test": "jest --coverage"
@@ -12,5 +11,10 @@
   "devDependencies": {
     "jest": "^24.7.1"
   },
-  "author": "Alexandra"
+  "dependencies": {
+    "markdown-link-extractor": "^1.2.0",
+    "node-fetch": "^2.3.0",
+    "path": "^0.12.7",
+    "yargs": "^13.2.2"
+  }
 }
