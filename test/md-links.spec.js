@@ -4,37 +4,16 @@ const mdLinks = require("../mdLinks.js");
 
 describe('mdLinks', () => {
 
-  it('Si recibe un archivo .md, retorna links', () => {
-    expect(mdLinks.mdLinks('README.md')).toBe(link);
+  it('Debería retornar los 3 links del archivo hola.md', () => {   
+    //.resolves / .rejects
+    //You can also use the .resolves matcher in your expect statement, and Jest will wait for that promise to resolve. 
+    expect(mdLinks.mdLinks('hola.md')).resolves.toEqual(['https://nodejs.org/docs/latest-v0.10.x/api/modules.html',
+      'https://nodejs.org/api/fs.html', 'https://nodejs.org/api/path.html']);
   });
 
-  it('Si no recibe un archivo .md, retorna false', () => {
-    expect(mdLinks.mdLinks('index.js')).toBe(false);
+  it('Debería retornar error para el archivo hola2.md', ()  => {
+    //Use .toThrow to test that a function throws when it is called
+    expect(mdLinks.mdLinks('hola2.md')).rejects.toThrow("ENOENT: no such file or directory, open 'hola2.md'");
   });
 
 })  
-
-
-/* const math = require('../md-links.js');
-
-describe('function sum', () => {
-
-  it('adds 1 + 2 to equal 3', () => {
-    expect(math.sum(1, 2)).toBe(3);
-  });
-  it('deberia retornar 4 para 2+2', () => {
-    expect(math.sum(2,2)).toBe(4);
-  }); 
-  it('deberia retornar false para 2+a', () => {
-    expect(math.sum(2,'a')).toBe(false);
-  }); 
-
-})
-
-describe('function multiply', () => {
-
-  it('multiply 2 * 2 to equal 4', () => {
-    expect(math.multiply(2, 2)).toBe(4);
-  });
-
-})  */

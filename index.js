@@ -2,19 +2,25 @@
 
 const path = process.argv[2];
 const mdLinks = require('./mdLinks.js')
+
 mdLinks.mdLinks(path)
 
 .then((links) => {
   links.forEach(function (link) {
-    if(path.includes('.md')){
       console.log(link)
-    }else {
-      console.log('debes ingresar un .md')
-      return false;
-    }
   });
 })
-.catch(console.error);
+
+/* .then(onFulfilled, onRejected);
+function onFulfilled(links){
+  links.forEach(function (link) {
+      console.log(link)
+  })
+}
+function onRejected(err) {
+  console.log('Cannot read the file.');
+  return false;
+}; */
 
 /* README ejemplos
 
