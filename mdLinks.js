@@ -2,25 +2,11 @@
 
 let fs = require('fs')
 let markdownLinkExtractor = require('markdown-link-extractor')
-/* let markdown = fs.readFileSync(path, utf-8);
-let links = markdownLinkExtractor(markdown);     */
 
-/* 
-// -------SIRVE---------
-
-links.forEach(function (link) {
-    console.log(link);
-});  */
-
-
-
-// --------PASANDO A FUNCIÓN, NO SIRVE---------
-
-const mdLinks = (path, encoding) => {
+const mdLinks = (path) => {
     return new Promise ((resolve,reject) => {
-        console.log(path, encoding)
         try {
-            let markdown = fs.readFileSync(path, encoding);
+            let markdown = fs.readFileSync(path, 'utf-8');
             let links = markdownLinkExtractor(markdown);    
             resolve(links);
         }

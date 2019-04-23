@@ -1,31 +1,20 @@
 #!/usr/bin/env node
-console.log('hola')
-console.log(process.argv)
-const path = process.argv[2].toString();
-const mdLinks = require('./mdLinks.js')
 
-mdLinks.mdLinks(path, 'utf-8')
+const path = process.argv[2];
+const mdLinks = require('./mdLinks.js')
+mdLinks.mdLinks(path)
 
 .then((links) => {
   links.forEach(function (link) {
-    console.log(link)
+    if(path.includes('.md')){
+      console.log(link)
+    }else {
+      console.log('debes ingresar un .md')
+      return false;
+    }
   });
 })
 .catch(console.error);
-
-/* .then((links) => {
-
-  links.forEach(function (link) {
-    if (path.includes('.md')) {
-      console.log(link);
-    } else {
-        console.log('debes ingresar un .md')
-        return false;
-    }
-})
-}) */
-
-
 
 /* README ejemplos
 
