@@ -1,3 +1,3 @@
-[módulos (CommonJS)](https://nodejs.org/docs/latest-v0.10.x/api/modules.html),
-[file system](https://nodejs.org/api/fs.html),
-[path](https://nodejs.org/api/path.html)
+[Instagram] (https://www.instagram.com/),
+[Airbnb](https://www.airbnb.cl/),
+[Platzi](https://platzi.com/)

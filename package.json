@@ -1,9 +1,9 @@
 {
-  "name": "md-links",
-  "version": "0.1.0",
-  "author": "Alexandra",
+  "name": "md-links-ale",
+  "version": "1.0.0",
+  "description": "A package to extract links from markdown files",
   "bin": {
-    "mdLinks": "index.js"
+    "md-links": "index.js"
   },
   "scripts": {
     "test": "jest --coverage"
@@ -11,8 +11,18 @@
   "devDependencies": {
     "jest": "^24.7.1"
   },
+  "keywords": [
+    "markdown",
+    "link",
+    "extractor",
+    "file"
+  ],
+  "author": "Alexandra",
+  "license": "ISC",
   "dependencies": {
+    "filehound": "^1.17.0",
     "markdown-link-extractor": "^1.2.0",
+    "marked": "^0.6.2",
     "node-fetch": "^2.3.0",
     "path": "^0.12.7",
     "yargs": "^13.2.2"

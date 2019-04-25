@@ -1,26 +1,23 @@
 #!/usr/bin/env node
+const mdLinks = require('./md-links.js')
+let markdownLinkExtractor = require('markdown-link-extractor')
 
-const path = process.argv[2];
-const mdLinks = require('./mdLinks.js')
-
-mdLinks.mdLinks(path)
-
-.then((links) => {
-  links.forEach(function (link) {
-      console.log(link)
-  });
+mdLinks.mdLinks(process.argv[2])
+.then(res => {
+  let links = markdownLinkExtractor(res)
+  console.log(links);
 })
 
-/* .then(onFulfilled, onRejected);
-function onFulfilled(links){
-  links.forEach(function (link) {
-      console.log(link)
-  })
-}
-function onRejected(err) {
-  console.log('Cannot read the file.');
-  return false;
-}; */
+/* The example below prints all of the files in a directory that have the .md file extension:
+
+const FileHound = require('filehound');
+ 
+const files = FileHound.create()
+  .paths('/some/dir') // process.argv[2] or path
+  .ext('md')
+  .find();
+ 
+files.then(console.log); */
 
 /* README ejemplos
 
