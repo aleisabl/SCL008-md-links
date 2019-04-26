@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const mdLinks = require("../md-links.js");
+const mdLinks = require("../mdLinks.js");
 
 describe('mdLinks', () => {
 

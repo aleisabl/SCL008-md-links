@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 const mdLinks = require('./md-links.js')
-let markdownLinkExtractor = require('markdown-link-extractor')
+const markdownLinkExtractor = require('markdown-link-extractor')
 
 mdLinks.mdLinks(process.argv[2])
 .then(res => {

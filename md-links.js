@@ -1,11 +1,8 @@
 #!/usr/bin/env node
 
-let fs = require('fs')
+const fs = require('fs')
 const pathLibrary = require ('path')
  
-/* const yargs = require ('yargs') */
-
-// readFile como una Promesa
 const mdLinks = (path) => {
     return new Promise((resolve, reject) => {
       fs.readFile(path, 'utf-8', (error, content) => {
@@ -22,6 +19,7 @@ const mdLinks = (path) => {
   }
   
 
+/* const yargs = require ('yargs') */
     /* 
     
 yargs.command({
