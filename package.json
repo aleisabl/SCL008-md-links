@@ -20,6 +20,7 @@
   "author": "Alexandra",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.18.0",
     "filehound": "^1.17.0",
     "markdown-link-extractor": "^1.2.0",
     "marked": "^0.6.2",
