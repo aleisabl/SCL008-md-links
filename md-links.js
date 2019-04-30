@@ -2,8 +2,9 @@
 
 const fs = require('fs')
 const pathLibrary = require ('path')
+const markdownLinkExtractor = require('markdown-link-extractor')
 
-  const mdLinks = (path) => {
+  const mdLinks = (path, options) => {
     return new Promise((resolve, reject) => {
 
         try {
@@ -17,6 +18,7 @@ const pathLibrary = require ('path')
                 if(err){
                     reject(err);
                 }
+                
                 resolve(content);
             })  
         }
@@ -25,7 +27,21 @@ const pathLibrary = require ('path')
         }
         
     })
+    
+   
+
 }
+
+/* mdLinks(process.argv[2])
+
+.then((links) => {
+    let links = markdownLinkExtractor(res)
+    links.forEach(function (link) {
+      console.log(link)
+    });
+  })
+  .catch(console.error);
+ */
 
 module.exports = {
     mdLinks
