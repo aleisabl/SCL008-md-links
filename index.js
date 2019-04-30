@@ -12,8 +12,8 @@ mdLinks.mdLinks(process.argv[2])
   .then(res => {
     const links = markdownLinkExtractor(res)
     if (process.argv[3] != '--validate' && process.argv[3] != '--stats' && process.argv[3] != null ){
-      throw(new Error("Ese comando no existe, intenta: --validate")); 
-    }else
+      throw(new Error("Ese comando no existe, intenta: --validate o --stats")); 
+    }
 
     links.map((link, index) => {
       axios.get(link)
@@ -32,7 +32,7 @@ mdLinks.mdLinks(process.argv[2])
         })
       }).then(resolveOK1 => {
         if(links.length === linksObject.length) {
-          console.log(linksObject - 1)
+          console.log(linksObject)
         }
       })
   })
@@ -63,7 +63,7 @@ mdLinks.mdLinks(process.argv[2], '--validate')
         })
       }).then(resolveOK2 => {
         if(links.length === linksObject.length) {
-          console.log(linksObject - 1)
+          console.log(linksObject)
         }
       })
   })
@@ -91,21 +91,18 @@ mdLinks.mdLinks(process.argv[2], '--stats')
       linksObject.push({
         href: link,
         text: errorDOWN3.request.connection.servername,
-        file: __filename,
-        broken: underscore.size(link)
+        file: __filename
       })
     }).then(resolveOK3 => {
       if(links.length === linksObject.length) {
-        console.log(linksObject - 1)
-        console.log('Total links :' + underscore.size(linksObject))
+        console.log(linksObject)
+        console.log(chalk.bgMagenta('Total :' + underscore.size(linksObject)))
+        console.log(chalk.bgMagenta('Broken :' + underscore.size(links)))
       }
     })
 })
-
 }
-
 })
-
 
 
 /* The example below prints all of the files in a directory that have the .md file extension:
