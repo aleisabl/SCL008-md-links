@@ -10,9 +10,9 @@ Estos archivos `Markdown` normalmente contienen _links_ (vínculos/ligas) que
 muchas veces están rotos o ya no son válidos y eso perjudica mucho el valor de
 la información que se quiere compartir.
 
-Por eso hemos creado una herramienta usando [Node.js](https://nodejs.org/), que lea 
+Por eso he creado una herramienta usando [Node.js](https://nodejs.org/), que lea 
 y analice archivos en formato `Markdown`, para verificar los links que contengan y reportar
-algunas estadísticas.
+algunas estadísticas, como si los links están caídos o funcionan.
 
 ## Instalación
 **CLI**: sudo npm install -g md-links-ale
@@ -26,27 +26,26 @@ const mdLinks = require ('md-links-ale')
 
 retornaría los links de esta forma:
 
-`[ 'https://es.someExample.org/wiki/example',
+`[ {'https://es.someExample.org/wiki/example',
   'https://nodejs.org/',
-  'https://anotherExample.com/invite/b/exampleLink' ]`
+  'https://anotherExample.com/invite/b/exampleLink'} ]`
 
 **CLI**: md-links README.md --validate
 
 retornaría los links de esta forma:
 
-`[ 'https://es.someExample.org/wiki/example' status: down,
-  'https://nodejs.org/ status: ok',
-  'https://anotherExample.com/invite/b/exampleLink' status: down ]`
+`[ {'https://es.someExample.org/wiki/example' status: DOWN,
+  'https://nodejs.org/ status: OK',
+  'https://anotherExample.com/invite/b/exampleLink' status: DOWN} ]`
 
   **CLI**: md-links README.md --stats
 
 retornaría:
 
-`1 ok, 2 down`
-
+`1 OK, 2 DOWN`
 
 ## Planificación 
 
 Para el board con el backlog para la implementación de la librería, utilicé:
 [Trello](https://trello.com/invite/b/5AGTMBps/51d6b63b1150b2b346c6c02c0ee6e4a1/markdown)
-y Milestones e Issues presentadas en Github.
+y [Milestones](https://github.com/aleisabl/SCL008-md-links/milestones) e [Issues](https://github.com/aleisabl/SCL008-md-links/issues) presentadas en Github.
