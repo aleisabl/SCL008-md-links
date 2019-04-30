@@ -26,6 +26,8 @@ const mdLinks = require ('md-links-ale')
 
 retornaría los links de esta forma:
 
+![LINKS](links.png)
+
 `[ {'https://es.someExample.org/wiki/example',
   'https://nodejs.org/',
   'https://anotherExample.com/invite/b/exampleLink'} ]`
@@ -33,6 +35,8 @@ retornaría los links de esta forma:
 **CLI**: md-links README.md --validate
 
 retornaría los links de esta forma:
+
+![VALIDATE](validate.png)
 
 `[ {'https://es.someExample.org/wiki/example' status: DOWN,
   'https://nodejs.org/ status: OK',
@@ -42,7 +46,7 @@ retornaría los links de esta forma:
 
 retornaría:
 
-`1 OK, 2 DOWN`
+![STATS](stats.png)
 
 ## Planificación 
 
