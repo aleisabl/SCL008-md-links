@@ -7,7 +7,7 @@ const chalk = require ('chalk')
 const underscore = require('underscore');
 const linksObject = [];
 
-mdLinks.mdLinks(process.argv[2], '--validate')
+mdLinks.mdLinks(process.argv[2])
 
   .then(res => {
     if (process.argv[3] === '--validate'){
@@ -37,7 +37,7 @@ mdLinks.mdLinks(process.argv[2], '--validate')
   })
   
 } else if (process.argv[3] === '--stats'){
-  mdLinks.mdLinks(process.argv[2], '--stats')
+  mdLinks.mdLinks(process.argv[2])
   const links = markdownLinkExtractor(res)
   links.map((link, index) => {
     axios.get(link)
@@ -64,7 +64,7 @@ mdLinks.mdLinks(process.argv[2], '--validate')
     })
 
   })
-} else if (process.argv[3] != '--validate' && process.argv[3] != '--stats' && process.argv[3] != null ) {
+} else  {
 
   mdLinks.mdLinks(process.argv[2])
 
