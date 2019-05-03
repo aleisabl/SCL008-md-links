@@ -7,38 +7,6 @@ const chalk = require ('chalk')
 const underscore = require('underscore');
 const linksObject = [];
 
-mdLinks.mdLinks(process.argv[2])
-
-  .then(res => {
-    const links = markdownLinkExtractor(res)
-    if (process.argv[3] != '--validate' && process.argv[3] != '--stats' && process.argv[3] != null ){
-      throw(new Error("Ese comando no existe, intenta: --validate o --stats")); 
-    }
-
-    links.map((link, index) => {
-      axios.get(link)
-      .then(resolveOK1 => {
-        linksObject.push({
-          href: link,
-          text: resolveOK1.request.connection.servername,
-          file: __filename
-        })
-      })
-      .catch(errorDOWN1 => {
-        linksObject.push({
-          href: link,
-          text: errorDOWN1.request.connection.servername,
-          file: __filename
-        })
-      }).then(resolveOK1 => {
-        if(links.length === linksObject.length) {
-          console.log(linksObject)
-        }
-      })
-  })
-
-})
-
 mdLinks.mdLinks(process.argv[2], '--validate')
 
   .then(res => {
@@ -46,63 +14,91 @@ mdLinks.mdLinks(process.argv[2], '--validate')
     const links = markdownLinkExtractor(res)
     links.map((link, index) => {
       axios.get(link)
-      .then(resolveOK2 => {
+      .then(resolve => {
         linksObject.push({
           href: link,
           status: 'OK',
-          text: resolveOK2.request.connection.servername,
+          text: resolve.request.connection.servername,
           file: __filename
         })
       })
-      .catch(errorDOWN2 => {
+      .catch(error => {
         linksObject.push({
           href: link,
           status: 'DOWN',
-          text: errorDOWN2.request.connection.servername,
+          text: error.request.connection.servername,
           file: __filename
         })
-      }).then(resolveOK2 => {
+      }).then(resolve => {
         if(links.length === linksObject.length) {
           console.log(linksObject)
         }
       })
   })
   
-}
-
-})
-
-
-mdLinks.mdLinks(process.argv[2], '--stats')
-
-.then(res => {
-  if (process.argv[3] === '--stats'){
+} else if (process.argv[3] === '--stats'){
+  mdLinks.mdLinks(process.argv[2], '--stats')
   const links = markdownLinkExtractor(res)
   links.map((link, index) => {
     axios.get(link)
-    .then(resolveOK3 => {
+    .then(resolve => {
       linksObject.push({
         href: link,
-        text: resolveOK3.request.connection.servername,
+        text: resolve.request.connection.servername,
         file: __filename
       })
     })
-    .catch(errorDOWN3 => {
+    .catch(error => {
       linksObject.push({
         href: link,
-        text: errorDOWN3.request.connection.servername,
+        text: error.request.connection.servername,
         file: __filename
       })
-    }).then(resolveOK3 => {
+    })
+    .then(resolve => {
       if(links.length === linksObject.length) {
         console.log(linksObject)
         console.log(chalk.bgMagenta('Total :' + underscore.size(linksObject)))
         console.log(chalk.bgMagenta('Broken :' + underscore.size(links)))
       }
     })
+
+  })
+} else if (process.argv[3] != '--validate' && process.argv[3] != '--stats' && process.argv[3] != null ) {
+
+  mdLinks.mdLinks(process.argv[2])
+
+  .then(res => {
+    const links = markdownLinkExtractor(res)
+
+    links.map((link, index) => {
+      axios.get(link)
+      .then(resolve => {
+        linksObject.push({
+          href: link,
+          text: resolve.request.connection.servername,
+          file: __filename
+        })
+      })
+      .catch(error => {
+        linksObject.push({
+          href: link,
+          text: error.request.connection.servername,
+          file: __filename
+        })
+      }).then(resolve => {
+        if(links.length === linksObject.length) {
+          console.log(linksObject)
+        }
+      })
+  })
+
 })
 }
+
 })
+
+
 
 
 /* The example below prints all of the files in a directory that have the .md file extension:

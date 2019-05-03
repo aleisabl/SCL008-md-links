@@ -1,6 +1,6 @@
 {
   "name": "md-links-ale",
-  "version": "1.0.7",
+  "version": "1.0.9",
   "description": "A package to extract links from markdown files",
   "bin": {
     "md-links": "index.js"
