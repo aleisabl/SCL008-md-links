@@ -11,7 +11,7 @@ const pathLibrary = require ('path')
                 throw(new Error("Por favor ingresa un archivo .md"));
             }
 
-            fs.readFile(path,'utf-8',(err, content)=>{
+            fs.readFile(pathLibrary.resolve(path),'utf-8',(err, content)=>{
                 if(err){
                     reject(err);
                 }
