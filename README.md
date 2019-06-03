@@ -16,6 +16,7 @@ algunas estadísticas, como si los links están caídos o funcionan.
 
 ## Instalación
 **CLI**: sudo npm install -g md-links-ale
+
 **In-browser**: npm install md-links-ale
 
 ## Usabilidad y ejempĺos
