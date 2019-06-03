@@ -54,3 +54,7 @@ retornaría:
 Para el board con el backlog para la implementación de la librería, utilicé:
 [Trello](https://trello.com/invite/b/5AGTMBps/51d6b63b1150b2b346c6c02c0ee6e4a1/markdown)
 y [Milestones](https://github.com/aleisabl/SCL008-md-links/milestones) e [Issues](https://github.com/aleisabl/SCL008-md-links/issues) presentadas en Github.
+
+## Autores
+
+Este proyecto fue realizado por `Alexandra Fernández` en un período de 2 meses para Laboratoria, Chile.
