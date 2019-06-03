@@ -57,4 +57,4 @@ y [Milestones](https://github.com/aleisabl/SCL008-md-links/milestones) e [Issues
 
 ## Autores
 
-Este proyecto fue realizado por `Alexandra Fernández` en un período de 2 meses para Laboratoria, Chile.
+Este proyecto fue realizado por `Alexandra Fernández` en un período de 2 semanas para Laboratoria, Chile.
